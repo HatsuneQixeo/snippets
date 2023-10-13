@@ -1,0 +1,111 @@
+{
+	// Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Exception Class": {
+		"prefix": "exclass",
+		"body": [
+			"class $0Exception: public std::exception",
+			"{",
+			"\tpublic:\tconst char\t*what(void) const _NOEXCEPT;",
+			"};",
+			"const char\t*${TM_FILENAME_BASE}::$0Exception::what(void) const _NOEXCEPT",
+			"{",
+			"\treturn (\"${TM_FILENAME_BASE}: $0\");",
+			"}",
+			""
+		],
+		"description": "Execption Class snippet"
+	},
+	"Try Catch": {
+		"prefix": "trycatch",
+		"body": [
+			"try",
+			"{",
+			"\t$0",
+			"}",
+			"catch (const std::exception &e)",
+			"{",
+			"\tstd::cerr << e.what() << std::endl;",
+			"}",
+		],
+		"description": "Try catch snippet"
+	},
+	"Class Logging": {
+		"prefix": "classlog",
+		"body": [
+			"std::ostream\t&operator<<(std::ostream &stream, const ${TM_FILENAME_BASE} &${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}});",
+			"std::ostream\t&operator<<(std::ostream &stream, const ${TM_FILENAME_BASE} &${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}})",
+			"{",
+			"\tstream << ${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}.$0;",
+			"\treturn (stream);",
+			"}",
+			""
+		],
+		"description": "Class Logging snippet"
+	},
+	"Esc Clean": {
+		"prefix": "escclean",
+		"body": [
+			"std::cout << \"\\033[2J\";"
+		],
+		"description": "Class Logging snippet"
+	},
+	"system_error": {
+		"prefix": "syserr",
+		"body": [
+			"std::system_error(errno, std::system_category(), $0);"
+		],
+		"description": "system_error snippet"
+	},
+	"testmain": {
+		"prefix": "testmain",
+		"body": [
+			"#include <iostream>",
+			"",
+			"int\tmain(void)",
+			"{",
+			"\t$0",
+			"\treturn (0);",
+			"}",
+			""
+		],
+		"description": "testmain"
+	},
+	"ansi": {
+		"prefix": "ansilist",
+		"body": [
+			"namespace ansi",
+			"{",
+			"\tconst std::string\tgrey = \"\\e[0;30m\";",
+			"\tconst std::string\tred = \"\\e[0;31m\";",
+			"\tconst std::string\tgreen = \"\\e[0;32m\";",
+			"\tconst std::string\tyellow = \"\\e[0;33m\";",
+			"\tconst std::string\tblue = \"\\e[0;34m\";",
+			"\tconst std::string\tmagenta = \"\\e[0;35m\";",
+			"\tconst std::string\tcyan = \"\\e[0;36m\";",
+			"",
+			"\tconst std::string\tb_grey = \"\\e[0;90m\";",
+			"\tconst std::string\tb_red = \"\\e[0;91m\";",
+			"\tconst std::string\tb_green = \"\\e[0;92m\";",
+			"\tconst std::string\tb_yellow = \"\\e[0;93m\";",
+			"\tconst std::string\tb_blue = \"\\e[0;94m\";",
+			"\tconst std::string\tb_magenta = \"\\e[0;95m\";",
+			"\tconst std::string\tb_cyan = \"\\e[0;96m\";",
+			"",
+			"\tconst std::string\treset = \"\\e[0m\";",
+			"}",
+			"",
+		]
+	}
+}

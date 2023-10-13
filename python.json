@@ -1,0 +1,51 @@
+{
+	// Place your snippets for python here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"main": {
+		"prefix": "main",
+		"body": [
+			"def main():",
+			"\ttry:",
+			"\t\t$1",
+			"\texcept KeyboardInterrupt:",
+			"\t\texit(130)",
+			"\texcept Exception as e:",
+			"\t\tprint('Error:', e)",
+			"\t\texit(1)",
+			"",
+			"",
+			"if __name__ == \"__main__\":",
+			"\tmain()",
+			""
+		],
+		"description": "Main function"
+	},
+	"try": {
+		"prefix": "trycatch",
+		"body": [
+			"try:",
+			"\t$1",
+			"except Exception as e:",
+			"\tprint(f\"{e.__class__.__name__}:\", e)",
+		],
+		"description": "Try except block"
+	},
+	"showdoc": {
+		"prefix": "showdoc",
+		"body": [
+			"print($1.__doc__, file=open('$1.txt', 'w'))",
+		],
+		"description": "Export a docstring to a file with it's name"
+	},
+}
