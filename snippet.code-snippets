@@ -31,4 +31,24 @@
 		"description": "c array size",
 		"scope": "c,cpp"
 	},
+	"Case": {
+		"prefix": "case",
+		"body": [
+			"case ${1:/* value */}:",
+			"\t$0",
+			"\tbreak ;"
+		],
+	},
+	"IfElse": {
+		"prefix": "ifelse",
+		"body": [
+			"#if ${0}",
+			"",
+			"#else",
+			"",
+			"#endif",
+			""
+		],
+		"description": "if else"
+	},
 }
